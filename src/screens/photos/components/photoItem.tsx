@@ -1,17 +1,11 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 
-export default function AlbumItem(props) {
-  const navigation = useNavigation();
+export default function PhotoItem(props) {
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() => {
-        navigation.navigate('photos');
-      }}>
+    <TouchableOpacity style={styles.container}>
       <Image
-        source={{uri: 'https://picsum.photos/50/50'}}
+        source={{uri: props.item.thumbnailUrl}}
         style={{width: 50, height: 50}}
       />
       <View style={styles.column}>
