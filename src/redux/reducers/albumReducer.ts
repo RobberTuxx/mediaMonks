@@ -25,5 +25,7 @@ export default (state = initialState, action: {type: any; payload: any}) => {
         ...state,
         error: action.payload,
       };
+    default:
+      return state;
   }
 };
