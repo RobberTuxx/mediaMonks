@@ -1,9 +1,15 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 export default function PhotoItem(props) {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => {
+        navigation.navigate({name:'detail', params:{item: props.item}});
+      }}>
       <Image
         source={{uri: props.item.thumbnailUrl}}
         style={{width: 50, height: 50}}
